@@ -7,7 +7,6 @@ header {
     margin: 0;
     flex-wrap: wrap;
     font-weight: 400;
-    position: fixed;
     width: 100%;
 }
 
@@ -27,13 +26,14 @@ header {
 .header-nav {
     display: flex;
     flex: 1 1 80%;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .nav-list {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .nav-item {
