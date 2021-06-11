@@ -1,10 +1,16 @@
+import React from 'react';
 import './App.css';
-import NavBar from './navbar/navbar';
-
+import NavBar from './navbar/NavBar';
+import ItemListContainer from './ItemListContainer';
 
 function App() {
+  const greeting = "Bienvenido!";
+
   return (
-    <NavBar></NavBar>
+    <div className='app'>
+      <NavBar/>
+      <ItemListContainer greeting={greeting}/>
+    </div>
 
   );
 }
