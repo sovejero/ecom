@@ -1,0 +1,13 @@
+.item-counter {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-couter-input-box input {
+    text-align: center;
+    max-width: 80%;
+}
+
+.item-couter-input-box button {
+    min-width: 10%;
+}
