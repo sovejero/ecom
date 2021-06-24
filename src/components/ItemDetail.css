@@ -1,0 +1,16 @@
+.item-detail {
+    display: flex;
+    padding: 1em;
+    border: 1px solid black;
+    gap: 1em;
+}
+
+.item-detail-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+}
+
+.item-detail-price {
+    margin-top: 1em;
+}
