@@ -2,10 +2,16 @@
     display: flex;
     flex-direction: column;
     padding: 1em;
-    border: 1px solid black;
+    border: 1px solid gainsboro;
     gap: 0.2em;
 }
 
-.item img {
+.item__img {
     padding-bottom: 1em;
+}
+
+.item__link {
+    text-decoration: none;
+    color: black;
+    background: white;
 }

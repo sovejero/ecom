@@ -3,14 +3,15 @@
     padding: 1em;
     border: 1px solid black;
     gap: 1em;
+    background: white;
 }
 
-.item-detail-text {
+.item-detail__text {
     display: flex;
     flex-direction: column;
     gap: 0.3em;
 }
 
-.item-detail-price {
+.item-detail__price {
     margin-top: 1em;
 }
