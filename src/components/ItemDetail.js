@@ -7,11 +7,12 @@ const ItemDetail = ({item}) => {
       <div>
         <img src={item.pictureUrl} alt=""></img>
       </div>
-      <div className="item-detail-text">
+      <div className="item-detail__text">
         <p>ID: {item.id}</p>
+        <p>Category: {item.category}</p>
         <h3>{item.title}</h3>
         <p>Descripcion: {item.description}</p>
-        <p className="item-detail-price">Price: ${item.price}</p>
+        <p className="item-detail__price">Price: ${item.price}</p>
       </div>
     </div>
     );
