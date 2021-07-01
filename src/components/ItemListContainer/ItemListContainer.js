@@ -1,5 +1,5 @@
-import './ItemDetailContainer.css';
-import ItemDetail from './ItemDetail';
+import './ItemListContainer.css';
+import ItemList from '../ItemList/ItemList';
 import {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -11,27 +11,25 @@ const productsFetched = [
   {id: "05", category:"blends", title:"Title5", description: "Short description", price: 500, pictureUrl: "https://picsum.photos/200/?blur=4"}
 ];
 
-const ItemDetailContainer = () => {
-  const [item, setItem] = useState({});
+const ItemListContainer = () => {
   const {id} = useParams();
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const getItem = async () => { 
-      const response = await new Promise((resolve,reject) => {
-        setTimeout( () => resolve(productsFetched), 1000);
-      });
-      const item = await response.filter( x => x.id === id);
-      console.log(item);
-      setItem(...item);
-    };
-    getItem();
-  },[id]);
+    const getProducts = new Promise((resolve,reject) => {
+      setTimeout( () => resolve(productsFetched), 1000);
+    });
+
+    getProducts.then(products =>
+        id ? setProducts(products.filter(product => product.category===id)) : setProducts(products)
+      );
+  }, [id]);
 
   return (
-    <div className='container content-detail'>
-        <ItemDetail item={item}></ItemDetail>
+    <div className='container__item-list container'>
+        <ItemList items={products}></ItemList>
     </div>
     );
 }
   
-export default ItemDetailContainer;
+export default ItemListContainer;
