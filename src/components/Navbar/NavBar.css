@@ -42,6 +42,10 @@ header {
     transition: all 200ms ease-in;
 }
 
+.nav__link--capitalize {
+    text-transform: capitalize;
+}
+
 .nav__link:hover {
     color: #CB704D;
 }
