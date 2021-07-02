@@ -3,11 +3,11 @@
     flex-direction: column;
 }
 
-.item-couter-input-box input {
+.item-counter__input {
     text-align: center;
     max-width: 80%;
 }
 
-.item-couter-input-box button {
+.item-counter__button {
     min-width: 10%;
 }

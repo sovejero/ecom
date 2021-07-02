@@ -4,6 +4,7 @@
     border: 1px solid black;
     gap: 1em;
     background: white;
+    flex-wrap: wrap;
 }
 
 .item-detail__text {
@@ -14,4 +15,8 @@
 
 .item-detail__price {
     margin-top: 1em;
+}
+
+.item-detail--nodisplay {
+    display:none;
 }

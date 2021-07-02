@@ -1,6 +1,8 @@
+import { Link } from 'react-router-dom';
+
 const CartWidget = () => {
   return (
-    <a href="##" className="material-icons nav__link">shopping_cart</a>
+    <Link className="material-icons nav__link" to='/cart'>shopping_cart</Link>
     );
 }
 
