@@ -1,4 +1,3 @@
-import './ItemDetailContainer.css';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
@@ -12,7 +11,7 @@ const productsFetched = [
 ];
 
 const ItemDetailContainer = () => {
-  const [item, setItem] = useState({});
+  const [item, setItem] = useState(false);
   const {id} = useParams();
 
   useEffect(() => {
@@ -20,17 +19,15 @@ const ItemDetailContainer = () => {
       const response = await new Promise((resolve,reject) => {
         setTimeout( () => resolve(productsFetched), 1000);
       });
-      const item = await response.filter( x => x.id === id);
-      console.log(item);
+      const item = await response.filter( items => items.id === id);
+
       setItem(...item);
     };
     getItem();
   },[id]);
 
   return (
-    <div className='container content-detail'>
         <ItemDetail item={item}></ItemDetail>
-    </div>
     );
 }
   
