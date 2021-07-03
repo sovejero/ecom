@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './ItemCount.css';
 
-const ItemCount = ({stock, initial, onAdd=()=>{}}) => {
+const ItemCount = ({stock=2, initial=1, onAdd=()=>{}}) => {
   const [count, setCount] = useState(initial);
 
   const restOne = () => {
