@@ -1,0 +1,9 @@
+.content-detail {
+    display: flex;
+    background: whitesmoke;
+    padding: 0rem;
+    margin: 2rem auto;
+    flex-wrap: wrap;
+    font-weight: 400;
+    width: 100%;
+}

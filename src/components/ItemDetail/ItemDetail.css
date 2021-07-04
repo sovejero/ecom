@@ -1,0 +1,32 @@
+.item-detail {
+    display: flex;
+    padding: 1em;
+    border: 1px solid black;
+    gap: 1em;
+    background: white;
+    flex-wrap: wrap;
+}
+
+.item-detail__text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+}
+
+.item-detail__price {
+    margin-top: 1em;
+}
+
+.item-detail--nodisplay {
+    display:none;
+}
+
+.content-detail {
+  display: flex;
+  background: whitesmoke;
+  padding: 0rem;
+  margin: 2rem auto;
+  flex-wrap: wrap;
+  font-weight: 400;
+  width: 100%;
+}
