@@ -1,4 +1,3 @@
-import './ItemListContainer.css';
 import ItemList from '../ItemList/ItemList';
 import {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
@@ -13,7 +12,7 @@ const productsFetched = [
 
 const ItemListContainer = () => {
   const {id} = useParams();
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(false);
 
   useEffect(() => {
     const getProducts = new Promise((resolve,reject) => {
@@ -26,9 +25,9 @@ const ItemListContainer = () => {
   }, [id]);
 
   return (
-    <div className='container__item-list container'>
+    <>
         <ItemList items={products}></ItemList>
-    </div>
+    </>
     );
 }
   
