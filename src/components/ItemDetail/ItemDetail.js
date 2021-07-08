@@ -1,19 +1,14 @@
 import './ItemDetail.css';
 import ItemCount from '../ItemCount/ItemCount';
 import { useState } from 'react';
-import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Loader from '../Loader/Loader';
 
 const ItemDetail = ({item}) => {
   const [count, setCount] = useState(0);
-  const history = useHistory();
 
   const onAdd = (quantity) => {
     setCount(quantity);
-  }
-
-  const finishPurchase = () => {
-    history.push("/cart");
   }
 
   return (
@@ -29,8 +24,9 @@ const ItemDetail = ({item}) => {
               <h3>{item.title}</h3>
               <p>Descripcion: {item.description}</p>
               <p className="item-detail__price">Price: ${item.price}</p>
-              {!count && <ItemCount stock={8} initial={1} onAdd={onAdd}></ItemCount>}
-              {!!count && <button onClick={finishPurchase}>Terminar mi compra</button>}
+              {count===0 ? <ItemCount stock={8} initial={1} onAdd={onAdd}></ItemCount> :
+                <Link className={'item-detail__button'} to='/cart'>Terminar mi compra</Link>
+              }
             </div>
           </div>
         </div> 

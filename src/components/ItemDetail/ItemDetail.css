@@ -17,6 +17,19 @@
     margin-top: 1em;
 }
 
+.item-detail__button {
+  background: #CB704D;
+  border-radius: 10px;
+  padding: 0.5em 1em;
+  text-align: center;
+  text-decoration: none;
+  color: #FFF;
+}
+
+.item-detail__button:hover {
+  background: #4A403C;
+}
+
 .item-detail--nodisplay {
     display:none;
 }
