@@ -46,8 +46,20 @@ header {
     text-transform: capitalize;
 }
 
+.nav__link--cart {
+    display: flex;
+    border: 2px solid black;
+    padding: 0 0.3em;
+    border-radius: 5px;
+    align-items: center;
+}
+
 .nav__link:hover {
     color: #CB704D;
+}
+
+.nav__link--cart:hover {
+    border: 2px solid #CB704D;
 }
 
 .nav__link--active {

@@ -1,8 +1,12 @@
-import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
+
 
 const CartWidget = () => {
+  const { getTotalQuantity } = useContext(CartContext);
+  const totalQuantity = getTotalQuantity();
   return (
-    <Link className="material-icons nav__link" to='/cart'>shopping_cart</Link>
+    totalQuantity > 0 ? <i>{totalQuantity}</i> : null
     );
 }
 
