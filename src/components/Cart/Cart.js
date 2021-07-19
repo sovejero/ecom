@@ -8,31 +8,40 @@ const Cart = () => {
   const total = getTotal();
 
   return (
-    <div className="container container__item-list">
+    <div className="container container--margin">
+      <div className="cart-grid">
+        <p>Product</p>
+        <p>Quantity</p>
+        <p>Price each</p>
+        <p>Subtotal</p>
+        <p>Remove</p>
+      </div>
       {cartItems.length===0 ? <Link className='cart-item__button' to='/'>No items in cart, return Home</Link> :
         cartItems.map( (cartItem) => {
           return  (
-            <div key={cartItem.item.id} className='cart-item'>
-                <img className='cart-item__img' src={cartItem.item.pictureUrl} alt=""></img>
-                <div className='cart-item__description'>
-                  <h3>{cartItem.item.title}</h3>
-                  <p>{cartItem.item.category}</p>
-                  <p>{cartItem.quantity} x ${cartItem.item.price}</p>
+            <div key={cartItem.item.id} className='cart-grid'>
+                <div className='flex'>
+                  <img className='cart-item__img' src={cartItem.item.pictureUrl} alt=""></img>
+                  <div className="flex flex--direction">
+                    <p className="cart-item__product">Title: {cartItem.item.title}</p>
+                    <p className="cart-item__product">Category: {cartItem.item.category}</p>
+                    <p className="cart-item__product">Description: {cartItem.item.description}</p>
+                  </div>
                 </div>
-              <div className='cart-item__end'>
+                <p>{cartItem.quantity}</p>
+                <p>${cartItem.item.price}</p>
                 <p className='cart-item__total'>${cartItem.item.price*cartItem.quantity}</p>
                 <div className='cart-item__remove--wrapper'>
                   <span onClick={() => removeItem(cartItem.item.id)} className="material-icons cart-item__remove">delete</span>
                 </div>
-              </div>
             </div>
             );}
           )
       }
+
       <div className='cart-order'>
         <p>Total: ${total}</p>
       </div>
-
     </div>
   );
 }
