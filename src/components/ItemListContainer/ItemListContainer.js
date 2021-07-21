@@ -9,16 +9,16 @@ const ItemListContainer = () => {
 
   useEffect(() => {
     const itemCollection = dataBase.collection('items');
+    const query = id ? itemCollection.where("category", "==", id) : itemCollection;
 
-    itemCollection.get().then((querySnapshot) => {
+    query.get().then((querySnapshot) => {
       if(querySnapshot.size === 0) {
         console.log('No results!');
       }
       const items = querySnapshot.docs.map( doc => doc.data());
-      id ? setProducts(items.filter(item => item.category===id)) : setProducts(items);
-      console.log(items);
+      setProducts(items);
     }).catch( error => console.log('Error searching items: ', error))
-    .finally( () => console.log('Finally') );
+    .finally( () => console.log('Finally') )
 
   }, [id]);
 
