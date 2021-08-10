@@ -1,22 +1,10 @@
 import './Cart.css';
 import { useContext } from 'react';
-import { Link } from "react-router-dom";
 import { CartContext } from '../../context/CartContext';
-import { dataBase } from '../../firebase/firebase';
 
 const Cart = () => {
-  const { cartItems, removeItem, getTotal, getOrder } = useContext(CartContext);
+  const { cartItems, removeItem, getTotal, clear } = useContext(CartContext);
   const total = getTotal();
-  const orders = dataBase.collection("orders");
-  
-  const addOrder = () => {
-    const order= getOrder();
-    orders.add(order).then(({id}) => {
-      alert(id);
-      console.log("success");
-    }).catch(error => console.log(error)
-    ).finally(() => console.log("finally"))
-  };
 
   return (
     <div className="container container--margin">
@@ -27,8 +15,7 @@ const Cart = () => {
         <p>Subtotal</p>
         <p>Remove</p>
       </div>
-      {cartItems.length===0 ? <Link className='cart-item__button' to='/'>No items in cart, return Home</Link> :
-        cartItems.map( (cartItem) => {
+      {cartItems.map( (cartItem) => {
           return  (
             <div key={cartItem.item.id} className='cart-grid'>
                 <div className='flex'>
@@ -53,19 +40,10 @@ const Cart = () => {
       <div className='cart-order'>
         <p>Total: ${total}</p>
       </div>
-
       <div className='cart-order'>
-        <label>
-          Nombre: <input type="text"/>
-        </label>
-        <label>
-          Telefono: <input type="text"/>
-        </label>
-        <label>
-          Email: <input type="text"/>
-        </label>
-        <button onClick={addOrder}>Finalizar compra</button>
+        <button onClick={clear}>Remove all Items</button>
       </div>
+      
     </div>
   );
 }
