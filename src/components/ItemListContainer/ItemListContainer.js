@@ -1,5 +1,5 @@
 import ItemList from '../ItemList/ItemList';
-import {useEffect, useState} from 'react';
+import {useEffect, useState, Fragment} from 'react';
 import { useParams } from 'react-router-dom';
 import {dataBase} from '../../firebase/firebase';
 
@@ -18,14 +18,14 @@ const ItemListContainer = () => {
       const items = querySnapshot.docs.map( doc => doc.data());
       setProducts(items);
     }).catch( error => console.log('Error searching items: ', error))
-    .finally( () => console.log('Finally') )
+    .finally( () => {} )
 
   }, [id]);
 
   return (
-    <>
+    <Fragment>
         <ItemList items={products}></ItemList>
-    </>
+    </Fragment>
     );
 }
   
