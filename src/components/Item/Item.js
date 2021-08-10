@@ -9,7 +9,7 @@ const Item = ({item}) => {
         <img className='item__img' src={item.pictureUrl} alt=""></img>
         <h3>{item.title}</h3>
         <p>Category: {item.category}</p>
-        <p>Precio: ${item.price}</p>
+        <p>Price: ${item.price}</p>
       </div>
     </Link>
     );
