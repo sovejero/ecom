@@ -14,7 +14,6 @@ const CartForm = ({addOrder}) => {
   const formDisabled = Object.values(formData).includes('');
  
   const onFormInput = (e) => {
-    console.log(formData);
     setFormData({...formData, [e.target.name]: e.target.value});
   };
 

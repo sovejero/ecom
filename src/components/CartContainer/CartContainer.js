@@ -1,4 +1,4 @@
-import { useContext, Fragment, useState, useEffect } from 'react';
+import { useContext, Fragment, useState } from 'react';
 import { CartContext } from '../../context/CartContext';
 import { dataBase } from '../../firebase/firebase';
 import Cart from '../Cart/Cart';
@@ -13,17 +13,14 @@ const CartContainer = () => {
 
   const addOrder = ({name, surname, phone, email}) => {
     const order = getOrder(name, surname, phone, email);
-    
+
     orders.add(order).then(({id}) => {
       setOrderId(id);
+    }).then( () => {
+      clear();
     }).catch(error => console.log(error)
-    ).finally(() => {})
+    )
   };
-
-  useEffect(() => {
-    return () => clear();
-  }, [orderId]);
-
 
   return (
     emptyCart ? <CartEmpty orderId={orderId} ></CartEmpty> : 
