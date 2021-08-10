@@ -7,7 +7,7 @@ With at least one item added to cart, the user can place an orderd that will be 
 
 ## Gif showing page interaction
 
-![gif](https://github.com/sovejero/ecom/blob/8-router/public/pageInteraction.gif)
+![gif](https://raw.githubusercontent.com/sovejero/ecom/master/public/pageInteraction.gif)
 
 ## Functionality and structure
 
