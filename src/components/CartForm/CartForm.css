@@ -15,6 +15,10 @@
   box-sizing: border-box;
 }
 
+.form__label {
+  text-transform: capitalize;
+}
+
 .form__button {
   background-color: #CB704D;
   font-size: 1rem;
@@ -24,6 +28,16 @@
   border: none;
   cursor: pointer;
   width: 50%;
+}
+
+.form__error {
+  font-size: 0.9rem;
+  color: red;
+}
+
+.form__button:disabled {
+  background-color: #a1887d;
+  cursor: not-allowed;
 }
 
 .form__button:hover {

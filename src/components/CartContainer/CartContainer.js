@@ -1,4 +1,4 @@
-import { useContext, Fragment } from 'react';
+import { useContext, Fragment, useState, useEffect } from 'react';
 import { CartContext } from '../../context/CartContext';
 import { dataBase } from '../../firebase/firebase';
 import Cart from '../Cart/Cart';
@@ -6,22 +6,27 @@ import CartEmpty from '../CartEmpty/CartEmpty';
 import CartForm from '../CartForm/CartForm';
 
 const CartContainer = () => {
-  const { cartItems, getOrder } = useContext(CartContext);
+  const { isCartEmpty, getOrder, clear } = useContext(CartContext);
   const orders = dataBase.collection("orders");
-  
-  const addOrder = (e) => {
-    e.preventDefault();
+  const emptyCart = isCartEmpty();
+  const [orderId, setOrderId] = useState('');
 
-    const order= getOrder();
+  const addOrder = ({name, surname, phone, email}) => {
+    const order = getOrder(name, surname, phone, email);
+    
     orders.add(order).then(({id}) => {
-      alert(id);
-      console.log("success");
+      setOrderId(id);
     }).catch(error => console.log(error)
-    ).finally(() => console.log("finally"))
+    ).finally(() => {})
   };
 
+  useEffect(() => {
+    return () => clear();
+  }, [orderId]);
+
+
   return (
-    cartItems.length===0 ? <CartEmpty></CartEmpty> : 
+    emptyCart ? <CartEmpty orderId={orderId} ></CartEmpty> : 
     <Fragment>
       <Cart></Cart>
       <CartForm addOrder={addOrder}></CartForm>
