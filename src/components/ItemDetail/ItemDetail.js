@@ -23,11 +23,11 @@ const ItemDetail = ({item}) => {
             </div>              
             <div className="item-detail__text">
               <p>ID: {item.id}</p>
-              <p>Category: {item.category}</p>
               <h3>{item.title}</h3>
-              <p>Descripcion: {item.description}</p>
+              <p>Category: {item.category}</p>
+              <p>Description: {item.description}</p>
               <p className="item-detail__price">Price: ${item.price}</p>
-              {count===0 ? <ItemCount stock={8} initial={1} onAdd={onAdd}></ItemCount> :
+              {count===0 ? <ItemCount stock={item.stock} initial={1} onAdd={onAdd}></ItemCount> :
                 <Link className={'item-detail__button'} to='/cart'>Terminar mi compra</Link>
               }
             </div>
