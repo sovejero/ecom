@@ -5,6 +5,10 @@ export const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
+  const isCartEmpty = () => {
+    return cartItems.length===0;
+  }
+
   const isInCart = (itemId) => {
     return cartItems.filter(cartItem => cartItem.item.id === itemId).length > 0;
   }
@@ -53,7 +57,7 @@ export const CartProvider = ({ children }) => {
     }
   }
 
-  const getOrder = () => {
+  const getOrder = (name, surname, phone, email) => {
     const items = cartItems.map( ({item, quantity}) => (
       { id: item.id, title: item.title, price: item.price, quantity: quantity }
       ));
@@ -62,9 +66,9 @@ export const CartProvider = ({ children }) => {
 
     return {
       buyer: {
-        name: "customer",
-        phone: "1223123",
-        email: "email@domain.com",
+        name: `${name} ${surname}`,
+        phone: phone,
+        email: email,
       },
       items,
       date,
@@ -73,7 +77,7 @@ export const CartProvider = ({ children }) => {
   }
 
   return(
-    <CartContext.Provider value={{addItem, removeItem, getTotalQuantity, getTotal, getOrder, clear, cartItems}}>
+    <CartContext.Provider value={{addItem, removeItem, getTotalQuantity, getTotal, getOrder, clear, isCartEmpty, cartItems}}>
       {children}
     </CartContext.Provider>
   )

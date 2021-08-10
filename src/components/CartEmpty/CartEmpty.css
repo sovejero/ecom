@@ -1,3 +1,16 @@
 .container--center {
   text-align: center;
 }
+
+.order-commpleted {
+  background-color: #2aa70b;
+  font-size: 1rem;
+  color: white;
+  padding: 1em 0;
+  margin: 1em auto;
+
+}
+
+.order--hidden {
+  visibility: hidden;
+}
