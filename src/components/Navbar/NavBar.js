@@ -24,7 +24,7 @@ const NavBar = () => {
             }
           </ul>
           <ul className="nav__list">
-            <li className="nav__item"><a className="nav__link" href="##">LogIn</a></li>
+            {/* <li className="nav__item"><a className="nav__link" href="##">LogIn</a></li> */}
             <li className="nav__item">
               <Link className="nav__link nav__link--cart" to='/cart'>
                 <i className="material-icons">shopping_cart</i>
