@@ -23,7 +23,7 @@ const ItemCount = ({stock, initial=1, onAdd=()=>{}}) => {
           <input className="item-counter__input" type="number" value={count} readOnly></input>
           <button className="item-counter__button" onClick={addOne}>+</button>
         </div>
-        <button disabled={!stock} onClick={() => onAdd(count)}>Agregar al carrito</button>
+        <button disabled={!stock} onClick={() => onAdd(count)}>Add to cart</button>
     </div>
     );
 }
